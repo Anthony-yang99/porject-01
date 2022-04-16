@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>折叠卡片案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+
+        }
+
+        .king {
+            width: 852px;
+            margin: 100px auto;
+            background-image: url(img/bg.png);
+            padding: 10px;
+        }
+
+        .king ul {
+            overflow: hidden;
+        }
+
+        .king li {
+            position: relative;
+            float: left;
+            width: 69px;
+            height: 69px;
+            margin-right: 10px;
+        }
+
+        .king .current {
+            width: 224px;
+        }
+
+        .king .current .big {
+            display: block;
+        }
+
+        .king .current .small {
+            display: none;
+        }
+
+        .big {
+            width: 224px;
+            display: none;
+        }
+
+        .small {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 69px;
+            height: 69px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+    <script>
+        $(function () {
+            $(".king li").mouseenter(function () {
+                $(this).stop().animate({
+                    width: 224
+                }).find(".small").stop().fadeOut().siblings(".big").stop().fadeIn()
+                $(this).siblings().stop().animate({
+                    width: 69
+                }).find(".small").stop().fadeIn().siblings(".big").stop().fadeOut()
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="king">
+        <ul>
+            <li class="current">
+                <a href="#">
+                    <img class="small" src="img/m1.jpg" alt="">
+                    <img class="big" src="img/m.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="small" src="img/z1.jpg" alt="">
+                    <img class="big" src="img/z.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="small" src="img/t1.jpg" alt="">
+                    <img class="big" src="img/t.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="small" src="img/l1.jpg" alt="">
+                    <img class="big" src="img/l.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="small" src="img/h1.jpg" alt="">
+                    <img class="big" src="img/h.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="small" src="img/c1.jpg" alt="">
+                    <img class="big" src="img/c.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="small" src="img/w1.jpg" alt="">
+                    <img class="big" src="img/w.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

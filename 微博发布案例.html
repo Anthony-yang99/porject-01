@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .weibo {
+            position: relative;
+            margin: 50px auto;
+            width: 800px;
+            /* height: 300px; */
+            border: 1px solid black;
+        }
+
+        span {
+            position: absolute;
+            display: inline-block;
+            margin-top: 200px;
+        }
+
+        button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+
+        }
+
+        .box {
+            margin: 50px 150px;
+            width: 500px;
+            height: 200px;
+            border: 1px solid black;
+
+        }
+
+        ul {
+            width: 500px;
+            position: absolute;
+            bottom: 0;
+            left: 150px;
+            margin-bottom: 10px;
+        }
+
+        ul a {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+        }
+
+        ul li {
+            line-height: 24px;
+            border-bottom: 1px solid black;
+            display: none;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+    <script>
+        $(function () {
+            //点击发布，把输入框中的值，添加到li中，再把li添加到ul中
+            $("button").on("click", function () {
+                var li = $("<li></li>")
+                li.html($(".box").val() + "<a href='javascript:;'>删除</a>")
+                $("ul").prepend(li)
+                li.slideDown()
+                $(".box").val("")
+            })
+            //点击删除，删除li
+            $("ul").on("click", "a", function () {
+                $(this).parent().slideUp(function () {
+                    $(this).remove()
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="weibo">
+        <span>微博发布</span>
+        <textarea name="" id="" class="box" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+</body>
+
+</html>

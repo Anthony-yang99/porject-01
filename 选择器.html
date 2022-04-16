@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset-css.css">
+    <script src="jQuery.min.js"></script>
+    <script>
+        $(function () {
+
+            // $(".nav>li").mousemove(function () {
+            //     //这里的this指的是当前元素
+            //     $(this).children("ul").show()
+            // })
+            // $(".nav>li").mouseout(function () {
+            //     $(this).children("ul").hide()
+            // })
+            $(".nav>li").hover(function () {
+                //stop方法一定要写在动画前面，因为他是要结束上一个动画
+                $(this).children("ul").stop().slideToggle(200)
+            })
+        })
+
+    </script>
+    <style>
+        .nav>li {
+            float: left;
+            padding: 5px 5px;
+        }
+
+        .nav>li>ul>li {
+            padding: 5px 0;
+        }
+
+        .nav>li>ul {
+            display: none;
+        }
+
+        .nav li a {
+
+            color: burlywood;
+            text-decoration: none;
+        }
+
+        .nav li a:hover {
+            background-color: darkgoldenrod;
+            color: floralwhite;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微薄</a>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">评论</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微薄</a>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">评论</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微薄</a>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">评论</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+
+</html>
